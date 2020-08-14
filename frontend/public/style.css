@@ -1,0 +1,18 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  :root {
+      --clr-light: #fff;
+      --clr-dark: #000;
+      --clr-main: #000;
+      --clr-secondary: #999;
+  }
+
+  html {
+      scroll-behavior: smooth;
+  }
+
+  p {
+      color: var(--clr-secondary);
+  }
