@@ -9,4 +9,4 @@ db = SQLAlchemy()
 def setup_db(app):
     db.app = app
     db.init_app(app)
-    Migrate(app, db, directory=path.join('models', 'migrations'))
+    Migrate(app, db, directory=path.join("src/models", "migrations"))

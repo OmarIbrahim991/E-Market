@@ -10,3 +10,4 @@ dist/
 
 # Project environment variables
 setup.bat
+.env
