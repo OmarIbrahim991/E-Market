@@ -2,17 +2,12 @@ import json
 from jose import jwt
 from urllib.request import urlopen
 from os import environ
+from .errors import AuthError
 
 
 AUTH0_DOMAIN = environ.get("AUTH0_DOMAIN")
 ALGORITHMS = environ.get("ALGORITHMS").split(",")
 API_AUDIENCE = environ.get("API_AUDIENCE")
-
-
-class AuthError(Exception):
-    def __init__(self, error, status_code):
-        self.error = error
-        self.status_code = status_code
 
 
 def get_token_from_auth_header(auth_header):
@@ -113,7 +108,7 @@ def check_permissions(permission, payload):
         raise AuthError({
             "code": "invalid_claims",
             "description": "'permissions' not included in JWT."
-        }, 400)
+        }, 401)
 
     if permission not in payload["permissions"]:
         raise AuthError({

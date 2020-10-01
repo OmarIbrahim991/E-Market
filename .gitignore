@@ -11,3 +11,10 @@ dist/
 # Project environment variables
 setup.bat
 .env
+
+# Development related folders
+migrations/
+
+#System files
+*.ini
+*.bat

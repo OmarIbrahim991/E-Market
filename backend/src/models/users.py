@@ -14,13 +14,11 @@ class User(db.Model):
     created_at = Column(DateTime)
     completed = Column(Boolean, nullable=False)
 
-    def __init__(self, user_id, role="customer", first_name="", last_name="", created_at=datetime.utcnow(), completed=False):
+    def __init__(self, user_id):
         self.user_id = user_id
-        self.first_name = first_name
-        self.last_name = last_name
-        self.role = role
-        self.created_at = created_at
-        self.completed = completed
+        self.role = "customer"
+        self.created_at = datetime.utcnow()
+        self.completed = False
 
     def format(self):
         return {

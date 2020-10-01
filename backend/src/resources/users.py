@@ -1,12 +1,13 @@
 from flask import request, abort
 from flask_restful import Resource
-from models import User
 from auth import requires_auth
+from models.users import User
 
 
 class Users(Resource):
     def get(self):
         payload = requires_auth(request.headers.get("Authorization"))
+
         try:
             user = User.query.filter_by(user_id=payload["sub"]).one_or_none()
         except Exception:

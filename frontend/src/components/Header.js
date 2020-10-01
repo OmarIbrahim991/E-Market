@@ -1,5 +1,5 @@
 import React from "react"
-import { login, logout, isAuthenticated } from "../utils/auth"
+import { login, signup, logout, isAuthenticated } from "../utils/auth"
 
 const Header = () => {
     let userData
@@ -12,7 +12,7 @@ const Header = () => {
     return (
         isAuthenticated() ?
         <header>{userData.verified ? <h3>{`${userData.first_name} ${userData.last_name}`}</h3> : null}<button onClick={logout}>Logout</button></header> :
-        <header><button onClick={login}>Login</button></header>
+        <header><button onClick={login}>Login</button><button onClick={signup}>Signup</button></header>
     )
 }
 

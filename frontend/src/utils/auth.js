@@ -23,6 +23,10 @@ export const login = (parameters={}) => {
     window.location.href = `https://${AUTH0_DOMAIN}/authorize?${paramString}`
 }
 
+export const signup = (parameters={}) => {
+    login({...parameters, "login_mode": "signup"})
+}
+
 export const logout = (parameters={}) => {
     localStorage.setItem("jwt", "")
     localStorage.setItem("payload", JSON.stringify({}))
